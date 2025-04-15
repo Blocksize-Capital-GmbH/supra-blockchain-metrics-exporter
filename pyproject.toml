@@ -1,0 +1,22 @@
+[project]
+name = "blocksize-supra-blockchain-metrics-exporter"
+version = "0.1.0"
+description = "Prometheus exporter for Supra validator and RPC metrics"
+packages = [{ include = "exporter" }]
+authors = [
+    {name = "Abhinav Taneja",email = "abhinav2196@gmail.com"},
+    {name = "Axel Lode", email = "<al@blocksize-capital.com>"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = "^3.12"
+dependencies = [
+    "flask (>=3.1.0,<4.0.0)",
+    "prometheus-client (>=0.21.1,<0.22.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
