@@ -58,10 +58,56 @@ Exporter runs on [http://localhost:9100/metrics](http://localhost:9100/metrics)
 
 ## 📦 Docker Support
 
-```bash
-docker build -t supra-exporter .
-docker run --env-file .env -p 9100:9100 supra-exporter
+---
+
+## 📦 Quick Start
+
+### 🐳 Option 1: Using Docker Compose
+
+1. Create a `.env` file in the project root (see [sample.env](#sampleenv) below).
+2. Save the following as `docker-compose.yml`:
+
+```yaml
+version: '3.8'
+
+services:
+  supra-metrics-exporter:
+    image: yourdockerhub/supra-metrics-exporter:latest
+    container_name: supra_blockchain_metrics_exporter
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - ./.env:/app/.env
 ```
+
+3. Run:
+
+```bash
+docker compose up -d
+```
+
+Metrics will be available at:  
+```
+http://localhost:${EXPORTER_PORT}
+```
+
+---
+
+### 🐳 Option 2: Using Docker CLI
+
+```bash
+docker run --network host \
+  -v $(pwd)/.env:/app/.env \
+  --name supra_exporter \
+  -d yourdockerhub/supra-metrics-exporter:latest
+```
+
+---
+
+## ⚙️ Configuration
+
+All configuration is provided via a `.env` file. Here’s a minimal working example:
+
 
 ---
 
