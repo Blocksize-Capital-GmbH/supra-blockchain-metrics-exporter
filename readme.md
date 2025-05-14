@@ -3,7 +3,7 @@
 A lean, modular, and production-ready Prometheus exporter for the [Supra](https://supra.com/) blockchain.  
 This exporter collects metrics from:
 
-- 📡 RPC endpoints (e.g. block height, health)
+- 📡 RPC endpoints (e.g. block height)
 - 📜 Validator log files (e.g. block authored, view frequency)
 
 Supports all three deployment modes:

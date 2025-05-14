@@ -20,12 +20,12 @@ class MetricsHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
 def start_http_server_with_collectors(port):
+    registry.register(CommonCollector())  # Register first!
     if config.role == "rpc":
         registry.register(RpcCollector())
     elif config.role == "validator":
         registry.register(ValidatorCollector())
     elif config.role == "both":
-        registry.register(CommonCollector())       # Register first!
         registry.register(RpcCollector())
         registry.register(ValidatorCollector())
 
