@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  supra-metrics-exporter:
+    build: .
+    container_name: supra_exporter
+    env_file: .env
+    ports:
+      - "${EXPORTER_PORT}:${EXPORTER_PORT}"
+    restart: unless-stopped

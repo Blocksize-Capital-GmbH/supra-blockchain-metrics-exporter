@@ -16,8 +16,5 @@ RUN poetry install --no-root --only main
 # Copy the actual source code
 COPY . .
 
-# Expose the metrics port
-EXPOSE 9100
-
 # Run the exporter
 CMD ["poetry", "run", "python", "-m", "exporter.main"]
